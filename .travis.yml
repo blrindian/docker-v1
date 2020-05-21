@@ -8,3 +8,18 @@ before_install:
 
 script:
   - docker run blrindian/docker-v1 npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-v1"
+  env: "DockerV1-env"
+  bucket_name: "elasticbeanstalk-us-east-2-247355646948"
+  bucket_path: "docker-v1"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+
