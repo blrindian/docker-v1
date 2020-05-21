@@ -3,8 +3,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t TESTINGDOCKER -f Dockerfile.dev .
+  - docker build -t blrindian/docker-v1 -f Dockerfile.dev .
 
 
 script:
-  - docker run TESTINGDOCKER npm run test -- --coverage
+  - docker run blrindian/docker-v1 npm run test -- --coverage
